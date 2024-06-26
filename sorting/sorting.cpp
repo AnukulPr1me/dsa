@@ -95,6 +95,37 @@ void MergeSort(vector<int>& arr, int n) {
     mergeSort(arr, 0, n - 1);
 }
 
+//quicksort
+int partition(vector<int> &arr, int low, int high){
+    int pivot = arr[low];
+    int i = low;
+    int j = high;
+    while(i<j){
+        while(arr[i] <= pivot && i<=high-1){
+            i++;
+        }
+        while(arr[j]>pivot && j>=low+1){
+            j--;
+        }
+        if(i<j) swap(arr[i],arr[j]);
+
+    }
+    swap(arr[low], arr[j]);
+    return j;
+}
+void QuickSort(vector<int> & arr, int low, int high){
+    if(low<high){
+        int pIndex = partition(arr, low, high);
+        QuickSort(arr, low, pIndex -1);
+        QuickSort(arr, pIndex +1, high);
+        
+    }
+}
+vector<int>& quickSort(vector<int> &arr){
+    QuickSort(arr, 0, arr.size() -1);
+    return arr;
+}
+
 int main() {
 
     vector<int> arr = {64, 25, 12, 22, 11};
@@ -128,5 +159,10 @@ int main() {
     
     cout << endl;
 
+    quickSort(arr);
+    for(int i =0; i<n;i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
 
 }
