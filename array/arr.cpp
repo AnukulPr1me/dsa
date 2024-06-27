@@ -71,13 +71,24 @@ void removeDup(vector<int>& arr) {
 bool checkSort(vector<int>& arr){
     int n = arr.size();
     for(int i=0; i<n; i++){
-        if(arr[i]<=arr[i+1]){
-            return true;
-        }
-        else{
+        if(arr[i]>arr[i+1]){
             return false;
         }
-        return true;
+    }
+    return true;
+}
+
+//taking the first element of the array and placeing it at the end and the adjusting the rest of the elements.
+
+void leftRot_Arr_1_palce(vector<int>& arr){
+    int n = arr.size();
+    int firstElement = arr[0];
+    for (int i = 1; i < n; i++) {
+        arr[i - 1] = arr[i]; // Shift each element one position to the left
+    }
+    arr[n - 1] = firstElement; // Place the first element at the end
+    for(int i: arr){
+        cout << i << " ";
     }
 }
 
@@ -90,6 +101,12 @@ int main() {
 
     cout << endl;
     secondLargest(arr);
+
+    cout << endl;
+    cout << " " << checkSort(arr);
+
+    cout << endl;
+    leftRot_Arr_1_palce(arr);
 
     return 0;
 }
