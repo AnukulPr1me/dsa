@@ -92,6 +92,25 @@ void leftRot_Arr_1_palce(vector<int>& arr){
     }
 }
 
+void leftRot_Arr_N_place(vector<int>& arr){
+    int n = arr.size();
+    int d;
+    d = d%n;
+    int temp[d];
+    for(int i=0; i<d; i++){
+        temp[i] = arr[i];
+    }
+    for (int i = d; i < n; i++)
+    {
+        arr[i-d] = arr[i]; 
+    }
+    for(int i =n-d; i<n; i++) {
+        arr[i] = temp[i-(n-d)];
+    }
+    
+    
+}
+
 int main() {
     vector<int> arr = {10, 20, 5, 8, 25, 8};
     maxElement(arr);
@@ -104,9 +123,17 @@ int main() {
 
     cout << endl;
     cout << " " << checkSort(arr);
+    cout << endl;
 
     cout << endl;
     leftRot_Arr_1_palce(arr);
+    
+
+    cout << endl;
+    leftRot_Arr_N_place(arr);
+    for(int i: arr){
+        cout << i << " ";
+    }
 
     return 0;
 }
