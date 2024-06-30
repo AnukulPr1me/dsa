@@ -111,8 +111,22 @@ void leftRot_Arr_N_place(vector<int>& arr){
     
 }
 
+void moveZero(vector<int>& arr){
+    int n = arr.size();
+    for(int i = 0; i<n; i++){
+        if(arr[i] == 0){
+            swap(arr[i], arr[n-1]);
+            n--;
+        }
+    }
+    for(int i: arr){
+        cout << i << " ";
+    }
+}
+
 int main() {
     vector<int> arr = {10, 20, 5, 8, 25, 8};
+    vector<int> arr1 = {10, 0, 5, 2, 9, 1, 12, 0, 19, 3};
     maxElement(arr);
 
     cout << endl;
@@ -134,6 +148,9 @@ int main() {
     for(int i: arr){
         cout << i << " ";
     }
+    cout << endl;
 
+    moveZero(arr1);
+    cout<<endl;
     return 0;
 }
