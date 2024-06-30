@@ -127,7 +127,7 @@ int main() {
 
     cout << endl;
     leftRot_Arr_1_palce(arr);
-    
+    cout << endl;
 
     cout << endl;
     leftRot_Arr_N_place(arr);
