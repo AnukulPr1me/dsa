@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <unordered_set>
 
 using namespace std;
 
@@ -124,6 +125,42 @@ void moveZero(vector<int>& arr){
     }
 }
 
+void linearSearch(vector<int>& arr, int n) {
+    bool found = false;
+    for (int i = 0; i < arr.size(); i++) {
+        if (arr[i] == n) {
+            cout << "Element " << n << " found at index " << i << endl;
+            found = true;
+            break;  // Exit the loop since we found the element
+        }
+    }
+    
+    if (!found) {
+        cout << "Element " << n << " not found in the array." << endl;
+    }
+}
+
+
+vector<int> noDupUnion(const vector<int>& arr1, const vector<int>& arr2) {
+    unordered_set<int> uniqueElements;
+    
+    // Insert all elements of arr1 into uniqueElements
+    for (int num : arr1) {
+        uniqueElements.insert(num);
+    }
+    
+    // Insert elements of arr2 into uniqueElements
+    for (int num : arr2) {
+        uniqueElements.insert(num);
+    }
+    
+    // Convert uniqueElements back to a vector
+    vector<int> result(uniqueElements.begin(), uniqueElements.end());
+    sort(result.begin(), result.end());
+    
+    return result;
+}
+
 int main() {
     vector<int> arr = {10, 20, 5, 8, 25, 8};
     vector<int> arr1 = {10, 0, 5, 2, 9, 1, 12, 0, 19, 3};
@@ -152,5 +189,16 @@ int main() {
 
     moveZero(arr1);
     cout<<endl;
+
+    linearSearch(arr1, 0);
+    cout << endl;
+
+    vector<int> merged = noDupUnion(arr, arr1);
+
+    for(int num:merged){
+        cout << num << " ";
+    }
+    cout << endl;
+
     return 0;
 }
