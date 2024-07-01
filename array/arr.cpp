@@ -161,8 +161,20 @@ vector<int> noDupUnion(const vector<int>& arr1, const vector<int>& arr2) {
     return result;
 }
 
+vector<int> intersectionArr(vector<int> arr, vector<int> arr1) {
+    vector<int> result;
+    for(int i=0; i<arr.size(); i++){
+        for(int j =0; j<arr1.size(); j++){
+            if(arr[i]==arr1[j]){
+                result.push_back(arr[i]);
+            }
+        }
+    }
+    return result;
+}
+
 int main() {
-    vector<int> arr = {10, 20, 5, 8, 25, 8};
+    vector<int> arr = {10, 20, 5, 8, 25, 8, 10};
     vector<int> arr1 = {10, 0, 5, 2, 9, 1, 12, 0, 19, 3};
     maxElement(arr);
 
@@ -199,6 +211,12 @@ int main() {
         cout << num << " ";
     }
     cout << endl;
+
+    cout << endl;
+    vector<int> intersection = intersectionArr(arr,arr1);
+    for(int num: intersection){
+        cout << num << " ";
+    }
 
     return 0;
 }
