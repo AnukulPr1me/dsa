@@ -7,15 +7,16 @@ void missingNum(vector<int> &arr)
     int n = 5;
     for (int i = 1; i <= n; i++)
     {
-        int j;
-        for (j = 0; j < arr.size(); j++)
+        int appear = 0;
+        for (int j = 0; j < arr.size(); j++)
         {
-            if (i == arr[j])
+            if (arr[j] == i)
             {
+                appear = 1;
                 break;
             }
         }
-        if (j == arr.size())
+        if (appear == 0)
         {
             cout << i << " ";
         }
