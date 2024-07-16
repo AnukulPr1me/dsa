@@ -3,6 +3,8 @@
 #include <vector>
 using namespace std;
 
+
+//Iterative method  
 int search(vector<int> & nums){
     int n = nums.size();
     int target = 8;
