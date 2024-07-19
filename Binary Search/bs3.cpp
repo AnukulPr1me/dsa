@@ -50,5 +50,6 @@ int main(){
     for(int i : lw){
         cout <<  i << " ";
     }
+    //comon occurances first  minus the last + 1
 
 }
