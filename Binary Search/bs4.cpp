@@ -38,18 +38,19 @@ int search(vector<int> &nums, int target)
     return -1;
 }
 
-int maxRot(vector<int>& nums){
-    int ans = INT_MAX;
+int findMin(vector<int>& nums){
     int n = nums.size();
-    int left = 0, right = n - 1;
-    while (nums[left] < nums[right]){
-        int mid = left + (right - left) / 2;
-        if (nums[right] < nums[mid]){
-            ans = max(ans, nums[left]);
-            left = mid + 1;
-        } else {
-            ans = min(ans, nums[mid]);
-            right = mid -1;
+        int left = 0;
+        int right = n - 1;
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            if (nums[mid] > nums[right]) {
+                left = mid + 1;
+            } else if (nums[mid] < nums[right]) {
+                right = mid;
+            } else {
+                right--; 
+            }
         }
-    }
+        return nums[left];
 }
