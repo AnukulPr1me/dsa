@@ -131,6 +131,11 @@ int main() {
     myBST.postOrderDFS();
     cout << endl;
     myBST.preOrderDFS();
+    cout << endl;
+    myBST.inOrderDFS();
+    cout << endl;
+
+    
 
     // Testing `contains` method
     cout << "Contains 27? " << (myBST.contains(27) ? "Yes" : "No") << endl;
