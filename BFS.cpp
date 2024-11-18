@@ -79,6 +79,39 @@ public:
         }
         cout << endl;
     }
+
+    void preOrderDFS(Node* currentNode){
+        cout << currentNode->value << " ";
+        if(currentNode->left != nullptr){
+            preOrderDFS(currentNode->left);
+        }
+        if(currentNode->right != nullptr){
+            preOrderDFS(currentNode->right);
+        }
+    }
+    void preOrderDFS() {preOrderDFS(root);}
+    
+    void postOrderDFS(Node* currentNode){
+        if(currentNode->left != nullptr){
+            preOrderDFS(currentNode->left);
+        }
+        if(currentNode->right != nullptr){
+            preOrderDFS(currentNode->right);
+        }
+        cout << currentNode->value << " ";
+    }
+    void postOrderDFS() {postOrderDFS(root);}
+
+    void inOrderDFS(Node* currentNode){
+        if(currentNode->left != nullptr){
+            inOrderDFS(currentNode->left);
+        }
+        cout << currentNode->value << " ";
+        if(currentNode->right != nullptr){
+            inOrderDFS(currentNode->right);
+        }
+    }
+    void inOrderDFS() {inOrderDFS(root);}
 };
 
 int main() {
@@ -94,6 +127,10 @@ int main() {
 
     cout << "Breadth-First Search (BFS): ";
     myBST.BFS();
+    cout << endl;
+    myBST.postOrderDFS();
+    cout << endl;
+    myBST.preOrderDFS();
 
     // Testing `contains` method
     cout << "Contains 27? " << (myBST.contains(27) ? "Yes" : "No") << endl;
