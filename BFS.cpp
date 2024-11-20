@@ -93,10 +93,10 @@ public:
     
     void postOrderDFS(Node* currentNode){
         if(currentNode->left != nullptr){
-            preOrderDFS(currentNode->left);
+            postOrderDFS(currentNode->left);
         }
         if(currentNode->right != nullptr){
-            preOrderDFS(currentNode->right);
+            postOrderDFS(currentNode->right);
         }
         cout << currentNode->value << " ";
     }
